@@ -5,11 +5,11 @@
 ;; Created: 2008-12-09
 ;; Last updated: 2010-11-24
 ;;
-;; The primary goal of this extension was to allow a very simple and
-;; easy navigation system for the function/class definitions of
-;; different types of source file (matched with regexps that can vary
-;; depending of your style). Of course it can be used with other types
-;; of pattern as well. A given pattern must be mapped to a file
+;; The primary goal of this extension was to create a very simple
+;; navigation system for the function/class definitions of different
+;; types of source file (matched with regexps that can vary depending
+;; on your style). Of course it can be used with other types of
+;; pattern as well. A given pattern must be mapped to a file
 ;; extension, and it's a one-to-one relationship: to one type of file
 ;; can only be associated one pattern (the trick is of course to use
 ;; regexp alternation if you have a need for it).
