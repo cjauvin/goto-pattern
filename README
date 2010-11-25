@@ -1,0 +1,40 @@
+;; goto-pattern.el --- An easy way to navigate to a predefined pattern
+;;                     in a file
+;;   
+;; Author: Christian Jauvin <cjauvin@gmail.com>
+;; Created: 2008-12-09
+;; Last updated: 2010-11-24
+;;
+;; The primary goal of this extension was to allow a very simple and
+;; easy navigation system for the function/class definitions of
+;; different types of source file (matched with regexps that can vary
+;; depending of your style). Of course it can be used with other types
+;; of pattern as well. A given pattern must be mapped to a file
+;; extension, and it's a one-to-one relationship: to one type of file
+;; can only be associated one pattern (the trick is of course to use
+;; regexp alternation if you have a need for it).
+;;
+;; By default, goto-pattern knows about a couple of "source file
+;; extension -> function/class definition pattern" mappings (for
+;; Python, PHP, JS, *Lisp and SQL). You can add a new one easily by
+;; using the interactive function:
+;;
+;;   M-x g2p-add-pattern
+;;
+;; If a pattern for the file extension you specified already exists,
+;; it will get replaced.
+;;
+;; This extension can be installed by adding it first to your
+;; load-path (in your .emacs):
+;;
+;;   (add-to-list 'load-path "/path/to/")
+;;
+;; then requiring it:
+;;
+;;   (require 'goto-pattern)
+;;
+;; and finally maybe mapping its entry point function to a handy
+;; keyboard shortcut, for instance:
+;;
+;;   (global-set-key "\C-cgp" 'goto-pattern) ; CTRL-c, + g + p
+;;
