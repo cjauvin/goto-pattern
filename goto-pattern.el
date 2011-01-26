@@ -3,7 +3,7 @@
 ;;   
 ;; Author: Christian Jauvin <cjauvin@gmail.com>
 ;; Created: 2008-12-09
-;; Last updated: 2010-11-24
+;; Last updated: 2011-01-26
 ;;
 ;; The primary goal of this extension was to create a very simple
 ;; navigation system for the function/class definitions of different
@@ -49,7 +49,7 @@
      ("sql" . "^ *create table.*\\|^ *CREATE TABLE.*")))
 
 (defun g2p-get-curr-buffer-extension ()
-  (if (string-match ".*[.]\\(.*\\)$" (buffer-name))
+  (if (string-match ".*[.]\\(.*?\\)\\(<[0-9]+>\\)?$" (buffer-name))
       (match-string 1 (buffer-name))
     nil))
 
@@ -73,7 +73,8 @@
   (define-key go2pattern-mode-map (kbd "<RET>") 'g2p-return)
   (define-key go2pattern-mode-map (kbd "<ESC>") '(lambda () 
                                                          (interactive) 
-                                                         (switch-to-buffer g2p-calling-buffer)))
+                               #from mod_python import util, Cookie, Session
+                          (switch-to-buffer g2p-calling-buffer)))
   (hl-line-mode))
 
 ; entry point
