@@ -39,7 +39,6 @@
 ;;   (global-set-key "\C-cgp" 'goto-pattern) ; CTRL-c, + g + p
 ;;
 
-
 (setq g2p-extension-to-pattern
    '(("py" . "^ *def .*\\|^ *class .*")
      ("php" . "^ *function .*\\|^ *class .*")
@@ -68,13 +67,12 @@
     (goto-line (g2p-get-line-number (nth 0 (nth (- retline 1) (reverse g2p-lines)))))
     (recenter)))
 
-(define-derived-mode go2pattern-mode nil "go2pattern mode"
-  (define-key go2pattern-mode-map [mouse-1] 'g2p-return)
-  (define-key go2pattern-mode-map (kbd "<RET>") 'g2p-return)
-  (define-key go2pattern-mode-map (kbd "<ESC>") '(lambda () 
-                                                         (interactive) 
-                               #from mod_python import util, Cookie, Session
-                          (switch-to-buffer g2p-calling-buffer)))
+(define-derived-mode g2p-mode nil "g2p mode"
+  (define-key g2p-mode-map [mouse-1] 'g2p-return)
+  (define-key g2p-mode-map (kbd "<RET>") 'g2p-return)
+  (define-key g2p-mode-map (kbd "<ESC>") '(lambda () 
+                                            (interactive) 
+                                            (switch-to-buffer g2p-calling-buffer)))
   (hl-line-mode))
 
 ; entry point
@@ -90,7 +88,7 @@
                 (g2p-clear-match-buffer (current-buffer))
                 (g2p-print-matches matches)
                 (goto-line 1)
-                (go2pattern-mode))
+                (g2p-mode))
             (message "No match")))
       (message "I have no pattern for this buffer type... (you can add one with M-x g2p-add-pattern)"))))
 
